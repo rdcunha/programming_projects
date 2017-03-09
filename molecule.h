@@ -18,6 +18,7 @@ class Molecule
     Matrix geom;
     Matrix I;
     Matrix evals;
+    Matrix evecs;
     string point_group;
     vector <double> cofm;
 
@@ -36,3 +37,5 @@ class Molecule
     Molecule();
     ~Molecule();
 };
+
+void jacobi(Matrix &veca, Matrix &vecb);

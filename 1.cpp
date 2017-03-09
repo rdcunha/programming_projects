@@ -91,6 +91,8 @@ int main()
   for(int i=0;i<3;i++){cout<<test.evals(i)*(pow(0.52917721067,2)) <<'\n';}
   cout<<"\nPrincipal moments of inertia (g*cm^2):\n";
   for(int i=0;i<3;i++){cout<<test.evals(i)*(1.66053904*(pow(10,-40))) <<'\n';}
+  test.evecs.resize(3,3);
+  jacobi(test.I,test.evecs);
 
   //checking the kind of rotor
   switch(test.rotor_type())
