@@ -32,8 +32,6 @@ int main()
       {
         if(test.bond(i,j)<4.0 && test.bond(j,k)<4.0)
           cout<<i<<'\t'<<j<<'\t'<<k<<'\t'<<test.angle(i,j,k)<<'\n';
-        /*else
-        {}*/
       }
     }
   }
@@ -94,6 +92,7 @@ int main()
   cout<<"\nPrincipal moments of inertia (g*cm^2):\n";
   for(int i=0;i<3;i++){cout<<test.evals(i)*(1.66053904*(pow(10,-40))) <<'\n';}
 
+  //checking the kind of rotor
   switch(test.rotor_type())
   {
     case 1:
@@ -108,6 +107,7 @@ int main()
       cout<<"The molecule is an asymmetric top.\n";
   }
   
+  //finding the rotational constants in cm-1
   string con="ABC";
   double factor=6.626070040*pow(10,-34)/(pow(acos(-1),2)*8.0*29979245800);
   for(int i=0;i<3;i++)
