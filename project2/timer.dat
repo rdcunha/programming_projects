@@ -1,0 +1,49 @@
+
+Host: Ruhees-MacBook-Pro.local
+
+Timers On : Sun Apr  2 12:10:52 2017
+Timers Off: Sun Apr  2 12:22:19 2017
+
+Wall Time:      687.00 seconds
+
+JK: (A|mn)  :      94.18u       0.08s      56.50w    111 calls
+JK: (A|Q)^-1/2:      30.93u       1.08s      16.80w    111 calls
+JK: (Q|mn)  :      25.33u       0.20s   4.235073w    111 calls
+HF: Form H  :       0.08u       0.23s   0.367958w     37 calls
+HF: Form S/X:       0.05u       0.00s   0.058056w     37 calls
+HF: Guess   :      31.93u       0.15s      19.32w     37 calls
+SAD Guess   :      31.55u       0.12s      19.09w     37 calls
+JK: D       :       0.02u       0.00s   0.039413w   1048 calls
+JK: USO2AO  :       0.45u       0.02s   0.273510w   1048 calls
+JK: JK      :     223.43u      13.65s     119.14w   1048 calls
+JK: J       :       8.55u       0.23s   2.877800w   1048 calls
+JK: J1      :       4.07u       0.10s   1.387105w   1344 calls
+JK: J2      :       4.03u       0.13s   1.291989w   1344 calls
+JK: K       :     212.07u      11.60s     113.57w   1048 calls
+JK: K1      :     187.88u      11.57s      99.01w   1270 calls
+JK: K2      :      24.13u       0.03s      14.53w   1270 calls
+JK: AO2USO  :       0.95u       0.02s   0.499667w   1048 calls
+DIISManager::add_entry:       0.22u       0.08s   0.167854w   1011 calls
+DIISManager::extrapolate:       0.85u       0.15s   0.564038w    974 calls
+DIISManager::extrapolate: bMatrix setup:       0.15u       0.08s   0.126313w    974 calls
+DIISManager::extrapolate: bMatrix pseudoinverse:       0.08u       0.00s   0.056178w    974 calls
+DIISManager::extrapolate: form new data:       0.62u       0.07s   0.373993w    974 calls
+HF: Form G  :     224.85u      13.67s     119.98w    752 calls
+HF: Form F  :       0.07u       0.00s   0.016190w    752 calls
+HF: DIIS    :       1.25u       0.23s   0.893171w    752 calls
+HF: Form C  :       1.17u       0.00s   0.750557w    752 calls
+HF: Form D  :       0.03u       0.00s   0.015368w    752 calls
+Grad: T     :       1.07u       0.00s   0.650902w     37 calls
+Grad: V     :      28.87u       0.25s      17.44w     37 calls
+Grad: S     :       0.45u       0.00s   0.301049w     37 calls
+Grad: JK    :     672.95u       6.32s     401.85w     37 calls
+JKGrad: Amn :     118.87u       2.30s      70.13w     37 calls
+JKGrad: Awmn:       0.00u       0.00s   0.000062w     37 calls
+JKGrad: AB  :      30.10u       1.32s      15.46w     37 calls
+JKGrad: UV  :       2.33u       0.32s   0.521276w     37 calls
+JKGrad: ABx :      15.72u       0.10s   9.592809w     37 calls
+JKGrad: Amnx:     478.63u       1.90s     286.74w     37 calls
+JKGrad: Awmnx:       0.00u       0.00s   0.000052w     37 calls
+Grad: XC    :       0.00u       0.00s   0.000124w     37 calls
+
+***********************************************************
