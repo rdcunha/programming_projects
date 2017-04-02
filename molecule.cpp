@@ -14,7 +14,7 @@ void Molecule::read_in()
   cout<<no_atoms<<'\n';
   z_vals.resize(no_atoms);
   geom.resize(3,no_atoms);
-  //read zvals and coords into single multidimensional array
+  //read zvals into a 1D vector and coords into a matrix called geom
   while(input)
   {
     for(int j=0; j<no_atoms;j++)
@@ -22,12 +22,13 @@ void Molecule::read_in()
       input>>z_vals[j];
       for(int i=0;i<3;i++)
       {
-        input>>geom(i,j);
+        input>>geom(i,j);           //here i is the x, y and z coordinates
       }
     }
   }
 }
 
+//function to print the geometry
 void Molecule::print_geom()
 {
   for(int i=0; i<no_atoms;i++)
@@ -36,6 +37,7 @@ void Molecule::print_geom()
   }
 }
 
+//function to translate the molecule
 void Molecule::translate(double x, double y, double z)
 {
   for(int i=0; i<no_atoms;i++)
@@ -46,6 +48,7 @@ void Molecule::translate(double x, double y, double z)
   }
 }
 
+//function to calculate bond lengths
 double Molecule::bond(int a1,int a2)
 {
   double length=0;
@@ -57,6 +60,7 @@ double Molecule::bond(int a1,int a2)
   return length;
 }
 
+//function to calculate bond angles
 double Molecule::angle(int a1, int a2, int a3)
 {
   double ang=0;
@@ -68,6 +72,7 @@ double Molecule::angle(int a1, int a2, int a3)
   return ang;
 }
 
+//function to calculate out of plane angles, where a2, a3 and a4 are in the same plane, a1 is out of plane
 double Molecule::oop(int a1, int a2, int a3, int a4)
 {
   double oops=0;
@@ -83,9 +88,10 @@ double Molecule::oop(int a1, int a2, int a3, int a4)
     oops+=coords[i][2]*(coords[(i+1)%3][0]*coords[(i+2)%3][1]-coords[(i+2)%3][0]*coords[(i+1)%3][1]);
     //std::cout<<'\n'<<i<<" 2.("<<(i+1)%3<<" 0 x "<<(i+2)%3<<" 1 - "<<(i+2)%3<<" 0 x "<<(i+1)%3<<" 1 )\n";
   }
-  oops*=1.0/(sin(angle(a2,a3,a4)*acos(-1.0)/180.0));
+  oops*=1.0/(sin(angle(a2,a3,a4)*acos(-1.0)/180.0));              //conversion from degrees to radians to calculate the sine
+  //conditions to check the angle is between 0-180 degrees
   if(oops < -1.0)
-    oops=asin(-1.0)*180.0/acos(-1.0);
+    oops=asin(-1.0)*180.0/acos(-1.0);                             //back-conversion to degrees from radians
   else if(oops > 1.0)
     oops=asin(1.0)*180.0/acos(-1.0);
   else
@@ -93,10 +99,12 @@ double Molecule::oop(int a1, int a2, int a3, int a4)
   return oops;
 }
 
+//function to calculate torsion angles, where the bonding order: a1-a2-a3-a4
 double Molecule::torsion(int a1, int a2, int a3, int a4)
 {
   double tors=0;
   vector <vector<double> > coords(3,vector<double>(4));
+  //creating unit vectors in directions a2-a1, a3-a2, a4-a3
   for(int j=0;j<3;j++)
   {
     coords[j][0]=(geom(j,a2)-geom(j,a1))/bond(a2,a1);
@@ -109,8 +117,9 @@ double Molecule::torsion(int a1, int a2, int a3, int a4)
   }
   tors*=1.0/sin(angle(a1,a2,a3)*acos(-1.0)/180.0);
   tors*=1.0/sin(angle(a2,a3,a4)*acos(-1.0)/180.0);
+  //once again, checking the angle is within range
   if(tors < -1.0)
-    tors=acos(-1.0)*180.0/acos(-1.0);
+    tors=acos(-1.0)*180.0/acos(-1.0);                             //back-conversion
   else if(tors > 1.0)
     tors=acos(1.0)*180.0/acos(-1.0);
   else
@@ -118,6 +127,7 @@ double Molecule::torsion(int a1, int a2, int a3, int a4)
   return tors;
 }
 
+//function to calculate the center of mass coordinates
 void Molecule::com()
 {
   cofm.resize(3);
@@ -136,6 +146,7 @@ void Molecule::com()
   }
 }
 
+//function to calculate the principal moments of inertia of the molecule
 void Molecule::inertia()
 {
   I.resize(3,3);
@@ -161,6 +172,7 @@ void Molecule::inertia()
   evals=es.eigenvalues();
 }
 
+//function to check the rotor type
 int Molecule::rotor_type()
 {
   if(evals(0)==evals(1))
