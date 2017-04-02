@@ -80,10 +80,11 @@ int main()
   //finding the coordinates of the center of mass
   test.com();
   cout<<"\nCenter of mass coordinates:\n"<<test.cofm[0]<<" "<<test.cofm[1]<<" "<<test.cofm[2]<<'\n';
+  //translating to center-of-mass coordinates
   test.translate(-test.cofm[0],-test.cofm[1],-test.cofm[2]);
   test.print_geom();
 
-  //finding the inertia tensor and the principle moments of inertia
+  //finding the inertia tensor and the principal moments of inertia
   test.inertia();
   cout<<"\nMoment of inertia tensor:\n"<<test.I<<'\n';
   cout<<"\nPrincipal moments of inertia (amu*bohr^2):\nIa = "<<test.evals(0)<<"\nIb = "<<test.evals(1)<<"\nIc = "<<test.evals(2)<<'\n'; 
