@@ -2,6 +2,8 @@
 Code for reading in various energy values and 2-electron integrals and iteratively calculating the HF energy using the SCF method.
 Also includes a function to compute the MP2 correction to the HF energy.
 
+By default, DIIS extrapolation is turned on to reduce the number of iterations required for convergence.
+
 Requires an input file *.cpp creating an instance of the class Hfock and calling its member function do_hf with user-set arguments.
 
 Outputs the final Fock matrix, final orbital energies and the total SCF energy for each iteration until convergence is reached.
